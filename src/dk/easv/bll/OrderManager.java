@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class OrderManager implements Closeable {
 
-    private LogManager log = new LogManager();
+    private LogManager log = LogManager.getInstance();
 
     public void placeOrder() {
         log.write("Order placed");

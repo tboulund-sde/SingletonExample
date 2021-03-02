@@ -11,10 +11,19 @@ import java.util.*;
 
 public class LogManager {
 
+    private static LogManager instance;
     private LinkedList<LogEntry> buffer;
 
-    public LogManager() {
+    private LogManager() {
         buffer = new LinkedList<>();
+    }
+
+    public static LogManager getInstance() {
+        if (instance == null) {
+            instance = new LogManager();
+        }
+
+        return instance;
     }
 
     public void write(String message) {
