@@ -4,11 +4,6 @@ import dk.easv.bll.LabelManager;
 import dk.easv.bll.LogManager;
 import dk.easv.bll.OrderManager;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.NoSuchFileException;
-import java.nio.file.Path;
-
 public class Main {
 
     private static OrderManager orderManager = new OrderManager();
