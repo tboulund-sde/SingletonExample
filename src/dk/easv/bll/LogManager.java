@@ -32,7 +32,7 @@ public class LogManager {
 
             Iterator<LogEntry> iterator = buffer.iterator();
             while (iterator.hasNext()) {
-                LogEntry le = iterator.next();
+                LogEntry le = buffer.pop();
                 bw.write(le.getId() + ") " + le.getMessage());
                 bw.newLine();
             }
