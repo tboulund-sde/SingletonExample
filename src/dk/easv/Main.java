@@ -15,8 +15,6 @@ public class Main {
     private static LabelManager labelManager = new LabelManager();
 
     public static void main(String[] args) {
-        pruneLog();
-
         orderManager.placeOrder();
         labelManager.printLabel();
         orderManager.sendInvoice();
@@ -28,18 +26,6 @@ public class Main {
 
         for(String log : LogManager.read()) {
             System.out.println(log);
-        }
-
-        pruneLog();
-    }
-
-    private static void pruneLog() {
-        try {
-            Files.delete(Path.of("my.log"));
-        } catch(NoSuchFileException e) {
-            // Ignore it - it's already gone
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }

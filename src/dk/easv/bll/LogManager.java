@@ -6,6 +6,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.util.*;
 
@@ -14,6 +15,14 @@ public class LogManager {
     private LinkedList<LogEntry> buffer;
 
     public LogManager() {
+        try {
+            Files.delete(Path.of("my.log"));
+        } catch(NoSuchFileException e) {
+            // Ignore it - it's already gone
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         buffer = new LinkedList<>();
     }
 
